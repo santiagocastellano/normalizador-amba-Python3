@@ -60,26 +60,29 @@ class NormalizadorDireccionesAMBA:
     def normalizar(self, direccion, maxOptions=10):
         res = []
         re_partido = re.match(r'(.*),(.+)', direccion)
-
+        global errorGlobal
+        errorGlobal = None
         if re_partido:
             try:
                 res = self.normalizarPorPartido(re_partido.group(1), re_partido.group(2), maxOptions)
             except Exception as e:
-                pass
+                errorGlobal = e
 
         if len(res) == 0:
             try:
                 res = self.normalizarPorPartido(direccion, maxOptions=maxOptions)
             except Exception as e:
-                pass
+                errorGlobal = e
 
         if len(res):
             return res
         else:
-            raise e
+            raise errorGlobal
 
     def normalizarPorPartido(self, direccion, partido='', maxOptions=10):
         res = [[], [], [], []]
+        global errorGlobal
+        errorGlobal = None
         for nd in self.normalizadores:
             try:
                 if partido == '':
@@ -97,7 +100,7 @@ class NormalizadorDireccionesAMBA:
                         elif m == MATCH:
                             res[3] += result
             except Exception as e:
-                pass
+                errorGlobal = e
 
         if len(res[0] + res[1] + res[2] + res[3]):
             res = (res[0] + res[1] + res[2] + res[3])
@@ -105,11 +108,12 @@ class NormalizadorDireccionesAMBA:
                 res = [r for r in res if (matcheaTexto(partido, r.partido.nombre) or matcheaTexto(partido, r.localidad))]
             return res[:maxOptions]
         else:
-            raise e
+            raise errorGlobal
 
     def normalizarCalleYCalle(self, calle1='', calle2='', partido='', maxOptions=10):
         res = [[], [], [], []]
-
+        global errorGlobal
+        errorGlobal = None
         if calle1 == '' or calle2 == '':
             raise Exception('Debe ingresar la calle y el cruce.')
 
@@ -130,12 +134,12 @@ class NormalizadorDireccionesAMBA:
                         elif m == MATCH:
                             res[3] += result
             except Exception as e:
-                pass
+                errorGlobal = e
 
         if len(res[0] + res[1] + res[2] + res[3]):
             return (res[0] + res[1] + res[2] + res[3])[:maxOptions]
         else:
-            raise e
+            raise errorGlobal
 
     def buscarCodigo(self, codigo):
         for nd in self.normalizadores:

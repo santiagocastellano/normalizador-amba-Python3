@@ -64,8 +64,9 @@ class NormalizadorDirecciones:
         @rtype: Array de Direccion
         '''
         res = []
-        error = None
 
+        global errorGlobal
+        errorGlobal = None
         if direccion == '':
             raise ErrorCalleInexistente('')
 
@@ -80,12 +81,13 @@ class NormalizadorDirecciones:
                 try:
                     res += self.normalizarCalleAltura(candidato['calle'], candidato['altura'], maxOptions)
                 except Exception as error:
-                    pass
+                    #pass
+                    errorGlobal = error
             elif candidato['tipo'] == CALLE_Y_CALLE:
                 try:
                     res += self.normalizarCalleYCalle(candidato['calle'], candidato['cruce'], maxOptions)
                 except Exception as error:
-                    pass
+                    errorGlobal = error
 
         if not res:
             direccion_sin_palabras_claves = self._quitarPalabrasClaves(direccion)
@@ -99,8 +101,8 @@ class NormalizadorDirecciones:
             if res:
                 return res
             else:
-                if error:
-                    raise error
+                if errorGlobal is not None:
+                    raise errorGlobal
                 else:
                     raise ErrorCalleInexistente(strDir.strOriginal)
         else:
