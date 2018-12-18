@@ -67,6 +67,7 @@ class NormalizadorDirecciones:
 
         global errorGlobal
         errorGlobal = None
+
         if direccion == '':
             raise ErrorCalleInexistente('')
 
@@ -81,7 +82,6 @@ class NormalizadorDirecciones:
                 try:
                     res += self.normalizarCalleAltura(candidato['calle'], candidato['altura'], maxOptions)
                 except Exception as error:
-                    #pass
                     errorGlobal = error
             elif candidato['tipo'] == CALLE_Y_CALLE:
                 try:
