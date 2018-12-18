@@ -6,7 +6,7 @@ Modified on Mar 28, 2016
 @author: hernan
 '''
 
-import urllib.request, urllib.error, urllib.parse
+from urllib import request, error, parse
 import re
 import json
 
@@ -22,10 +22,10 @@ class NormalizadorDireccionesAMBA:
 
     def _getPartidosAMBA(self):
         try:
-            response = urllib.request.urlopen(self.config['callejero_amba_server'] + 'partidos').read()
+            response = request.urlopen(self.config['callejero_amba_server'] + 'partidos').read()
             partidos = json.loads(response)
             return partidos
-        except urllib.error.HTTPError as e:
+        except error.HTTPError as e:
             e.detalle = 'Se produjo un error al intentar cargar la información de partidos.'
             raise e
 
@@ -46,7 +46,7 @@ class NormalizadorDireccionesAMBA:
                     nd = NormalizadorDirecciones(partido, self.config)
                     self.normalizadores.append(nd)
 
-        except urllib.error.HTTPError as e:
+        except error.HTTPError as e:
             e.detalle = 'Se produjo un error al intentar cargar la información de partidos.'
             raise e
 
