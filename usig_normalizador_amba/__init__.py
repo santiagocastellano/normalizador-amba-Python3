@@ -11,7 +11,7 @@ from __future__ import absolute_import
 from usig_normalizador_amba.NormalizadorDireccionesAMBA import NormalizadorDireccionesAMBA as ND
 NormalizadorAMBA = ND
 
-__title__ = 'usig-normalizador-amba-P3'
+__title__ = 'usig-normalizador-amba-P31'
 __description__ = 'Normalizador de Direcciones AMBA'
 __author__ = 'USIG - GCBA'
 __author_email__ = 'Hernán Ogasawara <hogasawara@buenosaires.gob.ar>'
