@@ -2,6 +2,10 @@
 
 History
 -------
+1.2.5 (2018-12-15)
+* Migracion de codigo a python 3.6
+* Correccion de captura de excepciones
+* Correccion en el consumo de servicios
 
 1.2.4 (2016-12-27)
 ------------------
