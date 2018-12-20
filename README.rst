@@ -37,13 +37,13 @@ PyPi
 ~~~~
 .. code:: bash
 
-    $ pip install usig-normalizador-amba
+    $ pip install -i https://test.pypi.org/simple/usig-normalizador-amba-P3
 
 Git
 ~~~
 .. code:: bash
 
-    $ git clone https://github.com/usig/normalizador-amba.git
+    $ git clone https://github.com/santiagocastellano/normalizador-amba-Python3.git
     $ cd normalizador-amba
     $ python setup.py install
 
@@ -51,7 +51,7 @@ Easy Install
 ~~~~~~~~~~~~
 .. code:: bash
 
-    $ git clone https://github.com/usig/normalizador-amba.git
+    $ git clone https://github.com/santiagocastellano/normalizador-amba-Python3.git
     $ cd normalizador-amba
     $ make prepare-package
     $ easy_install dist/usig-normalizador-amba-x.x.x.tar.gz
