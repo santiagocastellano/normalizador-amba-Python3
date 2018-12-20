@@ -20,7 +20,7 @@ setup(
     author_email=usig_normalizador_amba.__author_email__,
     url='https://github.com/santiagocastellano/normalizador-amba-Python3.git',
     license=usig_normalizador_amba.__license__,
-    packages=['usig_normalizador_amba'],
+    packages=['usig_normalizador_amba','tests'],
     keywords='usig gcba gis normalizador direcciones amba',
     platforms=['Unix/Linux'],
     classifiers=[

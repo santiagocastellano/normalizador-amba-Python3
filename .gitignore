@@ -4,5 +4,6 @@ benchmark/
 *.pyc
 *~
 dist/
+.idea/
 *.egg-info/
 MANIFEST
