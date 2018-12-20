@@ -1,6 +1,7 @@
 .pydevproject
 .project
 benchmark/
+venv/
 *.pyc
 *~
 dist/
