@@ -37,7 +37,7 @@ PyPi
 ~~~~
 .. code:: bash
 
-    $ pip install -i https://test.pypi.org/simple/usig-normalizador-amba-P3
+    $ pip install -i https://test.pypi.org/simple/usig-normalizador-amba-P32
 
 Git
 ~~~
