@@ -132,8 +132,6 @@ def parserText(str):
     print('Calle: ', res[0][0]['direcciones'][0].calle.nombre)
     print('Altura ', res[0][0]['direcciones'][0].altura)
     print('___________________')
-# otras pruebas
-
 
 direcciones = [u'Ubicado en Monseñor Alejandro Schell 166, a metros de la estación de Lomas de Zamora.',
                u'ministro brin al 600',
