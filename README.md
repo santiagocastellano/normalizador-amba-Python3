@@ -123,7 +123,7 @@ Para buscar una dirección en un texto:
 ```python
 from usig_normalizador_amba import NormalizadorAMBA
 
-def parserText(str):
+def parseText(str):
     nd = NormalizadorAMBA()  # lista de codigos de partido
     res = nd.buscarDireccion(str)
     print('Texto filtrado:',res[0][0]['texto'])
@@ -145,7 +145,7 @@ direcciones = [u'Ubicado en Monseñor Alejandro Schell 166, a metros de la estac
 
 for direccion in direcciones:
     try:
-        parserText(direccion)
+        parseText(direccion)
     except Exception as e:
         print(e)
         print('___________________')    
